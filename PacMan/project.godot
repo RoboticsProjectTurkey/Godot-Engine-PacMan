@@ -27,6 +27,7 @@ window/size/resizable=false
 2d_physics/layer_3="Ghost"
 2d_physics/layer_4="Money"
 2d_physics/layer_5="Money_Area"
+2d_physics/layer_6="Dead_Area"
 
 [physics]
 

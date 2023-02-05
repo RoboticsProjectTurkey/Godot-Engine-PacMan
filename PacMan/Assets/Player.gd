@@ -4,8 +4,12 @@ var speed = 150
 var last_velocity = Vector2.ZERO
 
 var score = 0
-var health = 0
+var health = 5
 onready var main = get_tree().get_current_scene()
+
+func _ready():
+	main.get_node("HUD").upgrade_score(score)
+	main.get_node("HUD").upgrade_health(health)
 
 func _physics_process(delta):
 	var velocity = Vector2.ZERO
@@ -38,3 +42,8 @@ func _on_Money_Area_body_entered(body):
 	body.set_cellv(body.world_to_map(position),9)
 	score += 1
 	main.get_node("HUD").upgrade_score(score)
+
+
+func _on_Dead_Area_body_entered(body):
+	health += -1
+	main.get_node("HUD").upgrade_health(health)
